@@ -2,7 +2,6 @@ const yargs = require("yargs");
 const {hideBin} = require("yargs/helpers");
 
 const contactsOperations = require("./contacts.js");
-// const argv = require("yargs").argv;
 
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
@@ -39,4 +38,4 @@ const { argv } = yargs(arr);
 
 invokeAction(argv);
 
-// invokeAction({ action: "list" });
+
