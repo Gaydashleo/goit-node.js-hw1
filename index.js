@@ -6,25 +6,25 @@ const contactsOperations = require("./contacts.js");
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      const contacts = await contactsOperations.list();
+      const contacts = await contactsOperations.listContacts();
       console.table(contacts);
       break;
 
     case "get":
-      const contact = await contactsOperations.get(id);
+      const contact = await contactsOperations.getContactByID(id);
       if(!contact){
         throw new Error(`Product with id=${id} not found`);
-            }
+      }
       console.log(contact);
       break;
 
     case "add":
-      const newContact = await contactsOperations.add(name,email,phone);
+      const newContact = await contactsOperations.addContact(name,email,phone);
       console.log(newContact);
       break;
 
     case "remove":
-      const removeContact = await contactsOperations.remove(id);
+      const removeContact = await contactsOperations.removeContact(id);
       console.log(removeContact);
       break;
 
